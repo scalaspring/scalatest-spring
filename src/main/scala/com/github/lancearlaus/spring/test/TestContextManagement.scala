@@ -18,15 +18,16 @@ import org.springframework.util.Assert
  * Sample usage:
  * {{{
  *   @ContextConfiguration(classes = Array(classOf[SomeConfiguration]))
- *   class SomeTestSpec extends FlatSpec with TestContextManagement {
+ *   class SomeTestSpec extends FlatSpec with TestContextManagement with Matchers {
  *
  *     // Use standard Autowired Spring annotation to inject necessary dependencies
  *     // Note that Spring will inject val (read-only) fields
  *     @Autowired
- *     val someDependency: SomeClass = _
+ *     val someDependency: SomeClass = null
  *
  *     "Some test" should "verify something" in {
  *       // Test implementation that uses injected dependency
+ *       someDependency should not be null
  *     }
  *
  *   }

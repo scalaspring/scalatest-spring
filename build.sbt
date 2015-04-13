@@ -1,5 +1,6 @@
 
 lazy val root = (project in file(".")).
+  settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*).
   settings(
     name                := "scalatest-spring",
     organization        := "com.github.lancearlaus",
@@ -8,9 +9,9 @@ lazy val root = (project in file(".")).
     crossScalaVersions  := Seq("2.10.5"),
 
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "2.2.4",
-      "org.springframework" % "spring-context" % "4.1.6.RELEASE",
-      "org.springframework" % "spring-test" % "4.1.6.RELEASE"
+      "org.scalatest" %% "scalatest" % "2.2+",
+      "org.springframework" % "spring-context" % "4.1+",
+      "org.springframework" % "spring-test" % "4.1+"
     ),
 
     // Publishing settings
