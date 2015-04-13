@@ -1,0 +1,47 @@
+
+lazy val root = (project in file(".")).
+  settings(
+    name                := "scalatest-spring",
+    organization        := "com.github.lancearlaus",
+    version             := "0.1-SNAPSHOT",
+    scalaVersion        := "2.11.6",
+    crossScalaVersions  := Seq("2.10.5"),
+
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "2.2.4",
+      "org.springframework" % "spring-context" % "4.1.6.RELEASE",
+      "org.springframework" % "spring-test" % "4.1.6.RELEASE"
+    ),
+
+    // Publishing settings
+    publishMavenStyle       := true,
+    publishArtifact in Test := false,
+    pomIncludeRepository := { _ => false },
+    publishTo := {
+      val nexus = "https://oss.sonatype.org/"
+      if (isSnapshot.value)
+        Some("snapshots" at nexus + "content/repositories/snapshots")
+      else
+        Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    },
+    pomExtra :=
+      <url>http://github.com/lancearlaus/scalatest-spring</url>
+      <licenses>
+        <license>
+          <name>Apache License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <distribution>repo</distribution>
+        </license>
+      </licenses>
+      <scm>
+        <url>git@github.com:lancearlaus/scalatest-spring.git</url>
+        <connection>scm:git:git@github.com:lancearlaus/scalatest-spring.git</connection>
+      </scm>
+      <developers>
+        <developer>
+          <id>lancearlaus</id>
+          <name>Lance Arlaus</name>
+          <url>http://lancearlaus.github.com</url>
+        </developer>
+      </developers>
+  )
