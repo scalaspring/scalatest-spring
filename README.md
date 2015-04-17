@@ -2,7 +2,7 @@
 
 This project is a simple integration of ScalaTest with Spring to manage the lifecycle of test contexts.
 
-# Getting started
+# Getting Started
 
 ## build.sbt
 
@@ -10,21 +10,37 @@ This project is a simple integration of ScalaTest with Spring to manage the life
 libraryDependencies ++= "com.github.lancearlaus" %% "scalatest-spring" % "0.1"
 ````
 
-## Extend the TestContextManagement trait
+## Create a Configuration and extend the TestContextManagement trait
 
 ````scala
-@ContextConfiguration(classes = Array(classOf[SomeConfiguration]))
-class SomeTestSpec extends FlatSpec with TestContextManagement with Matchers {
 
-  // Use standard Autowired Spring annotation to inject necessary dependencies
+import org.scalatest.{FlatSpec, Matchers}
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
+import org.springframework.test.context.ContextConfiguration
+
+
+@ContextConfiguration(classes = Array(classOf[SimpleConfiguration]))
+class SimpleTestSpec extends FlatSpec with TestContextManagement with Matchers {
+
+  // Use Spring @Autowired or Java @Inject annotation to inject necessary dependencies
   // Note that Spring will inject val (read-only) fields
-  @Autowired
-  val someDependency: SomeClass = null
+  @Autowired val injected: Seq[String] = null
 
-  "Some test" should "verify something" in {
+  "Dependency" should "be injected" in {
     // Test implementation that uses injected dependency
-    someDependency should not be null
+    injected should not be null
   }
 
 }
+
+@Configuration
+class SimpleConfiguration {
+
+    @Bean
+    def someSeq: Seq[String] = Seq("foo")
+
+}
+
+
 ````
