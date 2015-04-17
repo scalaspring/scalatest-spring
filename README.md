@@ -1,19 +1,18 @@
 # ScalaTest Spring Integration Library
 
-This project is a simple integration of ScalaTest with Spring to manage the lifecycle of test contexts.
+A simple integration of ScalaTest with Spring to manage the lifecycle of test contexts.
 
-# Getting Started
+## Getting Started
 
-## build.sbt
+### build.sbt
 
 ````scala
 libraryDependencies ++= "com.github.lancearlaus" %% "scalatest-spring" % "0.1"
 ````
 
-## Create a Configuration and extend the TestContextManagement trait
+### Create a Configuration and extend the TestContextManagement trait
 
 ````scala
-
 import org.scalatest.{FlatSpec, Matchers}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
@@ -41,6 +40,9 @@ class SimpleConfiguration {
     def someSeq: Seq[String] = Seq("foo")
 
 }
-
-
 ````
+
+### Notes
+
+* The `TestContextManagement` class is implemented as a stackable trait extending the `BeforeAndAfterAll` ScalaTest trait.
+* If you need your own before/afterAll logic, be sure to call `super.beforeAll` and `super.afterAll` in your implementation to ensure that contexts are properly created and destroyed. See the project test source for an example.
