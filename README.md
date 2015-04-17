@@ -6,13 +6,13 @@ This project is a simple integration of ScalaTest with Spring to manage the life
 
 ## build.sbt
 
-````
+````scala
 libraryDependencies ++= "com.github.lancearlaus" %% "scalatest-spring" % "0.1"
 ````
 
 ## Extend the TestContextManagement trait
 
-````
+````scala
 @ContextConfiguration(classes = Array(classOf[SomeConfiguration]))
 class SomeTestSpec extends FlatSpec with TestContextManagement with Matchers {
 
