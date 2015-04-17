@@ -7,13 +7,12 @@ lazy val root = (project in file(".")).
     version             := "0.1-SNAPSHOT",
     scalaVersion        := "2.11.6",
     crossScalaVersions  := Seq("2.10.5"),
-
+    javacOptions        := Seq("-source", "1.7", "-target", "1.7"),
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "2.2+",
       "org.springframework" % "spring-context" % "4.1+",
       "org.springframework" % "spring-test" % "4.1+"
     ),
-
     // Publishing settings
     publishMavenStyle       := true,
     publishArtifact in Test := false,
