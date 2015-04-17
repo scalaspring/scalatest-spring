@@ -2,16 +2,17 @@
 lazy val root = (project in file(".")).
   settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*).
   settings(
-    name                := "scalatest-spring",
     organization        := "com.github.lancearlaus",
-    version             := "0.1-SNAPSHOT",
+    name                := "scalatest-spring",
+    description         := "A simple integration of ScalaTest with Spring to manage test context lifecycle.\nUses standard Spring annotations and a stackable Scala trait.",
+    version             := "0.1.0-SNAPSHOT",
     scalaVersion        := "2.11.6",
     crossScalaVersions  := Seq("2.10.5"),
     javacOptions        := Seq("-source", "1.7", "-target", "1.7"),
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "2.2+",
-      "org.springframework" % "spring-context" % "4.1+",
-      "org.springframework" % "spring-test" % "4.1+"
+      "org.springframework" % "spring-context" % "4.+",
+      "org.springframework" % "spring-test" % "4.+"
     ),
     // Publishing settings
     publishMavenStyle       := true,

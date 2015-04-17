@@ -1,6 +1,7 @@
 # ScalaTest Spring Integration Library
 
-A simple integration of ScalaTest with Spring to manage the lifecycle of test contexts.
+A simple integration of ScalaTest with Spring to manage test context lifecycle.
+Uses standard Spring annotations and a stackable Scala trait.
 
 ## Getting Started
 
@@ -28,7 +29,7 @@ class SimpleTestSpec extends FlatSpec with TestContextManagement with Matchers {
 
   "Dependency" should "be injected" in {
     // Test implementation that uses injected dependency
-    injected should not be null
+    injected shouldEqual Seq("foo")
   }
 
 }
@@ -45,4 +46,5 @@ class SimpleConfiguration {
 ### Notes
 
 * The `TestContextManagement` class is implemented as a stackable trait extending the `BeforeAndAfterAll` ScalaTest trait.
+* Spring's `TestContextManager` class is used under the hood which reads the `@ContextConfiguration` attribute to set up the appropriate test context.
 * If you need your own before/afterAll logic, be sure to call `super.beforeAll` and `super.afterAll` in your implementation to ensure that contexts are properly created and destroyed. See the project test source for an example.
