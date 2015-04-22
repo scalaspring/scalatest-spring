@@ -4,7 +4,7 @@ lazy val root = (project in file(".")).
   settings(
     organization        := "com.github.scalaspring",
     name                := "scalatest-spring",
-    description         := "A simple integration of ScalaTest with Spring to manage test context lifecycle.\nUses standard Spring annotations and a stackable Scala trait.",
+    description         := "Integrates ScalaTest with Spring to manage test context lifecycle using standard Spring annotations and a stackable Scala trait",
     scalaVersion        := "2.11.6",
     crossScalaVersions  := Seq("2.10.5"),
     javacOptions        := Seq("-source", "1.7", "-target", "1.7"),

@@ -1,7 +1,6 @@
 ### ScalaTest Spring Integration (scalatest-spring)
 
-Integrates ScalaTest with Spring to manage test context lifecycle.
-Uses standard Spring annotations and a stackable Scala trait.
+Integrates ScalaTest with Spring to manage test context lifecycle using standard Spring annotations and a stackable Scala trait.
 
 #### Getting Started
 
