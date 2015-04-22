@@ -14,7 +14,7 @@ libraryDependencies ++= "com.github.scalaspring" %% "scalatest-spring" % "0.2.0"
 ##### Extend the TestContextManagement trait
 
 Extend the TestContextManagement trait in your test to automatically set up and tear down your Spring test context.
-Use the standard Spring ContextConfiguration annotation [http://docs.spring.io/spring/docs/current/spring-framework-reference/html/testing.html#integration-testing-annotations]
+Use the standard Spring ContextConfiguration annotation [Spring Testing Annotations](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/testing.html#integration-testing-annotations)
 to identify the configuration to use.
 
 ````scala
