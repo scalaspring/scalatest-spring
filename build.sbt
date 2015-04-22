@@ -2,7 +2,7 @@
 lazy val root = (project in file(".")).
   settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*).
   settings(
-    organization        := "com.github.lancearlaus",
+    organization        := "com.github.scalaspring",
     name                := "scalatest-spring",
     description         := "A simple integration of ScalaTest with Spring to manage test context lifecycle.\nUses standard Spring annotations and a stackable Scala trait.",
     scalaVersion        := "2.11.6",
@@ -25,7 +25,7 @@ lazy val root = (project in file(".")).
         Some("releases"  at nexus + "service/local/staging/deploy/maven2")
     },
     pomExtra :=
-      <url>http://github.com/lancearlaus/scalatest-spring</url>
+      <url>http://github.com/scalaspring/scalatest-spring</url>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -34,8 +34,8 @@ lazy val root = (project in file(".")).
         </license>
       </licenses>
       <scm>
-        <url>git@github.com:lancearlaus/scalatest-spring.git</url>
-        <connection>scm:git:git@github.com:lancearlaus/scalatest-spring.git</connection>
+        <url>git@github.com:scalaspring/scalatest-spring.git</url>
+        <connection>scm:git:git@github.com:scalaspring/scalatest-spring.git</connection>
       </scm>
       <developers>
         <developer>

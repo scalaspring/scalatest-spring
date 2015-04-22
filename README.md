@@ -8,7 +8,7 @@ Uses standard Spring annotations and a stackable Scala trait.
 ### build.sbt
 
 ````scala
-libraryDependencies ++= "com.github.lancearlaus" %% "scalatest-spring" % "0.1"
+libraryDependencies ++= "com.github.scalaspring" %% "scalatest-spring" % "0.1"
 ````
 
 ### Create a Configuration and extend the TestContextManagement trait
@@ -43,7 +43,7 @@ class SimpleConfiguration {
 }
 ````
 
-### Notes
+### Implementation Notes
 
 * The `TestContextManagement` class is implemented as a stackable trait extending the `BeforeAndAfterAll` ScalaTest trait.
 * Spring's `TestContextManager` class is used under the hood which reads the `@ContextConfiguration` attribute to set up the appropriate test context.
