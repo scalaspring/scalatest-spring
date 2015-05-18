@@ -1,5 +1,5 @@
 
-lazy val root = (project in file(".")).
+lazy val ScalaTestSpring = (project in file(".")).
   settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*).
   settings(
     organization        := "com.github.scalaspring",
