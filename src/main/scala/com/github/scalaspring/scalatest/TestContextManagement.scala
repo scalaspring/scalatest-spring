@@ -40,14 +40,14 @@ trait TestContextManagement extends BeforeAndAfterAll { this: Suite =>
 
   private val testContextManager: TestContextManager = new TestContextManager(this.getClass)
 
-  abstract override def beforeAll(): Unit = {
+  abstract override protected def beforeAll(): Unit = {
     super.beforeAll
     testContextManager.registerTestExecutionListeners(AlwaysDirtiesContextTestExecutionListener)
     testContextManager.beforeTestClass
     testContextManager.prepareTestInstance(this)
   }
 
-  abstract override def afterAll(): Unit = {
+  abstract override protected def afterAll(): Unit = {
     testContextManager.afterTestClass
     super.afterAll
   }

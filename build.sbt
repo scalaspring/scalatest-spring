@@ -1,5 +1,5 @@
 
-lazy val root = (project in file(".")).
+lazy val ScalaTestSpring = (project in file(".")).
   settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*).
   settings(
     organization        := "com.github.scalaspring",
@@ -8,6 +8,7 @@ lazy val root = (project in file(".")).
     scalaVersion        := "2.11.6",
     crossScalaVersions  := Seq("2.10.5"),
     javacOptions        := Seq("-source", "1.7", "-target", "1.7"),
+    scalacOptions       ++= Seq("-feature", "-deprecation"),
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "2.2+",
       "org.springframework" % "spring-context" % "4.+",
