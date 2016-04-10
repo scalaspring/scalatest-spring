@@ -7,7 +7,7 @@ Integrates ScalaTest with Spring to manage test context lifecycle using standard
 ##### build.sbt
 
 ````scala
-libraryDependencies ++= "com.github.scalaspring" %% "scalatest-spring" % "0.2.1"
+libraryDependencies ++= "com.github.scalaspring" %% "scalatest-spring" % "0.3.1"
 ````
 
 ##### Extend the TestContextManagement trait
